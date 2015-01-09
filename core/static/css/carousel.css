@@ -1,0 +1,29 @@
+.carouselContainer {
+    width:640px;
+    height:480px;
+    overflow:hidden;
+}
+
+.itemContainer {
+    width:640px;
+    height:480px;
+}
+
+.carouselText {
+    position: relative;
+    display:inline-block;
+    top:-300px;
+    left:340px;
+    width:300px;
+    background-color: rgba(232, 138, 30, 0.8);
+}
+
+.innerContainer {
+    position: relative;
+    top:0;
+    left:0;
+}
+
+#button {
+    cursor:pointer;
+}

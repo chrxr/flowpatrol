@@ -1,0 +1,150 @@
+.logoContainer {
+    background-size:80%;
+    background-position: -49px;
+    width:100%;
+    max-width: auto;
+    margin-left: 0;
+}
+
+.contactContainer {
+    display:none; 
+}
+
+.mobileContacts {
+    display:block;
+    margin: 0;
+    padding-left:10px;
+    background-color:rgba(91,197,1,1);
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+.mobileContacts h2, p {
+    margin:0;
+}
+
+.mobileContacts h2 {
+    color:#215d01;
+    font-size: 1.8em;
+}
+
+.mobilePhone  {
+    font-size: 2.5em;
+}
+
+.mobileFrame {
+    background-color:#FFF;
+    margin-right: 10px;
+    border-radius: 10px;
+    text-align: center;
+    padding:10px;
+}
+
+.topMenuContainer {
+    display:none;
+}
+.captionBox {
+    width:100%;
+    bottom:0;
+    left:0;
+    height:auto;
+}
+
+.captionBox h2 {
+    font-size: 1.2em;
+}
+
+.captionBox p {
+    margin:0.5em 0;
+}
+
+.footer_item.first {
+    padding-left:10px;
+}
+
+.pageTitle {
+    margin-left:10px;
+}
+
+.carouselContainer {
+    display:none;
+}
+
+.mobileMenu {
+    display:block;
+    position:absolute;
+    font-size: 3.3em;
+    right:15px;
+    top:27px;
+}
+
+.mobileMenu i {
+    cursor: pointer;
+}
+
+.mobileMenu i.fa-bars:hover {
+    color:green;
+}
+
+.mobileMenu i.fa-times-circle:hover {
+    color:red;
+}
+
+.mobileMenuContainer {
+    display:block;
+    padding:0;
+    margin:0;
+    height:0;
+    float:left;
+    width:100%;
+    -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
+    transition: height 1s;
+    background-color: #FFF;
+}
+
+.mobileMenuOptions {
+    display:block;
+    padding:0;
+    margin:0;
+    float:left;
+    width:100%;
+    background-color: white;
+}
+
+.mobileMenuOptions li {
+    display:block;
+    height:30px;
+    background-color: rgb(91,197,1);
+    padding-left:10px;
+    padding-bottom:5px;
+    padding-top:5px;
+
+    border-top: 1px #215d01 solid;
+}
+
+.mobileMenuOptions li:first-child {
+    border-top: 5px #215d01 solid;
+    margin-top: 10px;
+    padding-top:5px;
+    
+}
+
+.mobileMenuOptions li:hover {
+    background: rgb(154,196,117);
+    
+}
+
+.mobileMenuOptions li a {
+    text-decoration: none;
+    font-size:1.5em;
+    font-weight: bold;
+    color: #215d01;
+}
+
+.strapline h2 {
+    font-size:1em;
+}
+
+input.button {
+    height:1px;
+}

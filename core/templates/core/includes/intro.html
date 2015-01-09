@@ -1,0 +1,7 @@
+{% load wagtailcore_tags %}
+
+{% if intro %}
+  <div class="moreTextContainer">
+    {{ intro|richtext }}
+  </div>
+{% endif %}

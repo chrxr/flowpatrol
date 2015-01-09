@@ -1,0 +1,17 @@
+{% load core_tags wagtailcore_tags %}
+{% get_site_root as site_root %}
+
+<div class="strapline">
+    <h2>CORNWALL'S #1 DRAINAGE SOLUTION COMPANY</h2>
+</div>
+<div class="topMenuContainer">
+    <ul class="topMenu">
+        {% for menuitem in menuitems %}
+        <li class="topMenuItem">
+            <a href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+        </li>       
+        {% endfor %}
+    </ul>
+</div>
+
+{% include "core/includes/mobile_contacts.html" %}

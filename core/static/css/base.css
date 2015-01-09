@@ -1,0 +1,613 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html, button, input, select, textarea {
+  color: #222; }
+
+html {
+  font-size: 1em;
+  line-height: 1.4; }
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+audio, canvas, images, video {
+  vertical-align: middle; }
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical; }
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/**
+ * Author(s): Helen Chapman
+ *
+ * MIXINS
+ *
+ * Includes all mixins that are shared across the site, 
+ * both parametric (function) mixins and standard mixins.
+ *
+ * MIXIN EXAMPLE:
+ *  ul {
+ *    .some-reusable-class;
+ *  }
+ * 
+ * PARAMETRIC MIXIN EXAMPLE: 
+ *  .parametric-mixin($param1, $param2) {
+ *    color: $param1;
+ *    background: $param2;   
+ *  }
+ *
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+  .visuallyhidden:active, .visuallyhidden:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto; }
+
+.clearfix {
+  *zoom: 1; }
+  .clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0; }
+  .clearfix:after {
+    clear: both; }
+
+/* Removes standard list styles */
+.unlist, .unlist ul, .unlist li {
+  list-style-type: none;
+  font-style: normal; }
+.unlist, .unlist ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0; }
+.unlist li:before {
+  content: none;
+  margin: auto; }
+
+@font-face {
+  font-family: Langdon;
+  src: url(../fonts/Langdon.otf); }
+
+@font-face {
+  font-family: FiraSans;
+  src: url(../fonts/FiraSansOT-Regular.otf);
+  font-weight: normal; }
+
+@font-face {
+  font-family: FiraSans;
+  src: url(../fonts/FiraSansOT-Bold.otf);
+  font-weight: bold; }
+
+@font-face {
+  font-family: FiraSans;
+  src: url(../fonts/FiraSansOT-RegularItalic.otf);
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: SansPro;
+  src: url(../fonts/SourceSansPro-Regular.otf);
+  font-weight: normal; }
+
+@font-face {
+  font-family: SansPro;
+  src: url(../fonts/SourceSansPro-Bold.otf);
+  font-weight: bold; }
+
+body {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  background-color: #808080; }
+
+a:visited {
+  color: blue; }
+
+.topBannerContainer {
+  height: 100px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #FFF; }
+
+.logoContainer {
+  float: left;
+  height: 100%;
+  background-image: url(../images/logo2.jpg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: -35px;
+  width: 100%;
+  max-width: auto;
+  margin-left: 0; }
+
+.logoContainer a {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.contactContainer {
+  display: none; }
+
+.mobileContacts {
+  display: block;
+  margin: 0;
+  padding-left: 10px;
+  background-color: #5bc501;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.mobileContacts h2, p {
+  margin: 0; }
+
+.mobileContacts h2 {
+  color: #215D01;
+  font-size: 1.8em; }
+
+.mobilePhone {
+  font-size: 2.5em; }
+
+.mobileFrame {
+  background-color: #FFF;
+  margin-right: 10px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px; }
+
+.topMenuContainer {
+  display: none; }
+
+/* .captionBox {
+    width:100%;
+    bottom:0;
+    left:0;
+    height:auto;
+}
+
+.captionBox h2 {
+    font-size: 1.2em;
+}
+
+.captionBox p {
+    margin:0.5em 0;
+} */
+.pageTitle {
+  clear: both;
+  padding: 0;
+  margin-left: 10px; }
+
+.pageTitle h1 {
+  margin: 0;
+  margin-bottom: 0.3em;
+  line-height: 1em;
+  color: white;
+  font-size: 2.5em; }
+
+.carouselContainer {
+  display: none; }
+
+.mobileMenu {
+  display: block;
+  position: absolute;
+  font-size: 3.3em;
+  right: 15px;
+  top: 27px; }
+
+.mobileMenu i {
+  cursor: pointer; }
+
+.mobileMenu i.fa-bars:hover {
+  color: green; }
+
+.mobileMenu i.fa-times-circle:hover {
+  color: red; }
+
+.mobileMenuContainer {
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: 0;
+  float: left;
+  width: 100%;
+  -webkit-transition: height 1s;
+  /* For Safari 3.1 to 6.0 */
+  transition: height 1s;
+  background-color: #FFF; }
+
+.mobileMenuOptions {
+  display: block;
+  padding: 0;
+  margin: 0;
+  float: left;
+  width: 100%;
+  background-color: white; }
+
+.mobileMenuOptions li {
+  display: block;
+  height: 30px;
+  background-color: #5bc501;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-top: 1px #215D01 solid; }
+
+.mobileMenuOptions li:first-child {
+  border-top: 5px #215D01 solid;
+  margin-top: 10px;
+  padding-top: 5px; }
+
+.mobileMenuOptions li:hover {
+  background: #9ac475; }
+
+.mobileMenuOptions li a {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #215D01; }
+
+.headlineBox {
+  display: none; }
+
+.strapline {
+  display: inline-block;
+  padding-top: 5px;
+  width: 100%;
+  background-color: #215D01; }
+
+.strapline h2 {
+  font-family: 'Langdon';
+  margin: 0;
+  color: white;
+  font-size: 1em;
+  padding-left: 10px; }
+
+.mainBody {
+  position: relative;
+  width: 100%;
+  float: left;
+  clear: both;
+  background-color: #ececec; }
+
+.contentContainer {
+  float: left;
+  width: 100%; }
+
+.featuresBox.mobile {
+  display: block;
+  position: relative;
+  float: left;
+  top: auto;
+  left: auto;
+  width: 100%;
+  background-color: #5bc501;
+  padding: 0; }
+
+.featuresBox ul {
+  font-size: 1.4em;
+  color: white;
+  margin: 0;
+  padding: 0;
+  margin-left: 25px;
+  list-style-position: outside;
+  letter-spacing: 0.8px; }
+
+.featuresBox.mobile ul {
+  margin-left: 30px; }
+
+.lowerContainer {
+  width: 100%;
+  height: auto;
+  float: left;
+  padding-top: 15px;
+  background: #5bc501;
+  background: #67A82F;
+  font-family: SansPro;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.1em; }
+
+.bodyTextContainer {
+  float: left;
+  width: 40%;
+  clear: right;
+  padding-left: 10px; }
+
+.bodyTextContainer ul {
+  list-style: none;
+  margin-top: 10px;
+  padding-left: 30px; }
+
+.bodyTextContainer li {
+  display: block;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  line-height: 1.1em; }
+
+.bodyTextContainer li::before {
+  margin: 0 5px 0 -25px;
+  font-size: 80%; }
+
+.moreTextContainer {
+  width: 96%;
+  margin-left: 1%;
+  padding: 1%;
+  float: left;
+  background-color: #FFF;
+  margin-bottom: 15px; }
+
+.moreTextContainer p {
+  margin: 10px; }
+
+.moreTextContainer p:first-child {
+  font-weight: bold; }
+
+.moreTextContainer p:last-child {
+  margin-bottom: 0; }
+
+.formContainer {
+  float: left;
+  width: 96%;
+  margin-left: 1%;
+  margin-bottom: 20px;
+  padding: 1%;
+  background-color: #FFF; }
+
+.formContainer h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em; }
+
+.formContainer form input, textarea {
+  display: list-item;
+  width: 94%;
+  margin-right: 0; }
+
+.formContainer input[type=submit] {
+  width: 98%;
+  margin-top: 10px;
+  height: 50px; }
+
+.formContainer .messageBox {
+  min-height: 4em;
+  vertical-align: top;
+  padding: 2%;
+  width: 94%;
+  font-size: 0.85em; }
+
+.footer {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding-top: 10px;
+  background-color: #215D01; }
+
+.footer_list {
+  letter-spacing: 0.7px;
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-right: 20px;
+  float: left; }
+
+.footer_item.first {
+  text-indent: -10px; }
+
+.footer_item, .footer_item a {
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  padding-right: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+  padding-left: 10px;
+  margin-bottom: 10px; }
+
+.footer_item a:hover {
+  color: #9ac475; }
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Image replacement
+ */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px; }
+
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%; }
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+.invisible {
+  visibility: hidden; }
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.clearfix:after {
+  clear: both; }
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+  *zoom: 1; }
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster: h5bp.com/s */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+
+  a, a:visited {
+    text-decoration: underline; }
+
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  /*
+     * Don't show links for images, or javascript/internal links
+     */
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: ""; }
+
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group;
+    /* h5bp.com/t */ }
+
+  tr, images {
+    page-break-inside: avoid; }
+
+  images {
+    max-width: 100% !important; }
+
+  @page {
+    margin: 0.5cm; }
+
+  p, h2, h3 {
+    widows: 3; }
+
+  h2, h3 {
+    page-break-after: avoid; }
+ }

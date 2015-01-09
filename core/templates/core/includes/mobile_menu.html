@@ -1,0 +1,7 @@
+{% load core_tags wagtailcore_tags %}
+
+<div class='mobileMenu'>
+    <p><i class="fa fa-bars inactive" id="mobile_menu_button"></i></p>
+</div>
+    {% get_site_root as site_root %}
+    {% mobile_menu parent=site_root calling_page=self %}

@@ -1,0 +1,34 @@
+{% load wagtailembeds_tags wagtailimages_tags static wagtailcore_tags %}
+
+<div class='carouselContainer'>
+    {% if self.headline %}
+        <div class='headlineBox'><h2>{{ self.headline }}</h2></div>
+    {% endif %}
+    {% if self.headline and self.features %}
+        <div class='featuresBox'>{{ self.features|richtext }}</div>
+    {% endif %}
+    <div class="slider1">
+
+        {% for carousel_item in carousel_items %}
+            <div class="slide">
+                <a href="{{ carousel_item.link }}">
+                    {% if carousel_item.embed_url %}
+                        {# Embedded video - requires an embedly key to be stored in wagtailflowpatrolcore/settings/local.py #}
+                        {{ carousel_item.embed_url|embed:1000 }}
+                    {% else %}
+                        {# Carousel image - first store image as a variable in order to construct an image tag with a title applied (title is used by bxslider js to construct the caption) #}
+                        {% image carousel_item.image fill-1000x300 as carouselimagedata %}
+                        <img src="{{ carouselimagedata.url }}" width="{{ carouselimagedata.width }}" height="{{ carouselimagedata.height }}" alt="{{ carouselimagedata.alt }}" title="{{ carousel_item.caption }}" />
+                    {% endif %}
+                </a>
+                {% if carousel_item.image_title or carousel_item.image_caption %}
+                    <div class="captionBox">
+                        <h2 class="captionTitle">{{ carousel_item.image_title }}</h2>
+                        <p class="captionText">{{ carousel_item.image_caption }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

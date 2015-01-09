@@ -1,0 +1,110 @@
+/**
+ * Author(s): Helen Chapman
+ *
+ * MIXINS
+ *
+ * Includes all mixins that are shared across the site, 
+ * both parametric (function) mixins and standard mixins.
+ *
+ * MIXIN EXAMPLE:
+ *  ul {
+ *    .some-reusable-class;
+ *  }
+ * 
+ * PARAMETRIC MIXIN EXAMPLE: 
+ *  .parametric-mixin($param1, $param2) {
+ *    color: $param1;
+ *    background: $param2;   
+ *  }
+ *
+ */
+
+@mixin transform($transform){
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+}   
+
+@mixin transform-origin($origin){
+    -webkit-transform-origin: $origin;
+    -moz-transform-origin: $origin;
+    -o-transform-origin: $origin;
+    transform-origin: $origin;
+}
+
+@mixin transition($transition){
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin filter($filter){
+    -webkit-filter: $filter;
+    filter: $filter;
+    -moz-filter: $filter;
+    -o-filter: $filter;
+    -ms-filter: $filter;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    &:active, &:focus { 
+        clip: auto; 
+        height: auto; 
+        margin: 0; 
+        overflow: visible; 
+        position: static; 
+        width: auto; 
+    }
+}
+
+.clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/* Removes standard list styles */
+.unlist {
+    &, ul, li{
+        list-style-type:none;
+        font-style: normal;
+    }
+    &, ul{
+        margin-top:0;
+        margin-bottom:0;
+        padding-left:0;
+    }
+    li:before{
+        content:none;
+        margin:auto;
+    }
+}
+
+@mixin border-radius($radius){
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity / 100;
+}

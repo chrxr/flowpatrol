@@ -1,0 +1,11 @@
+{% load core_tags wagtailcore_tags %}
+{% get_site_root as site_root %}
+    <div class="mobileMenuContainer">
+        <ul class="mobileMenuOptions">
+            {% for menuitem in menuitems %}
+            <li class="mobileMenuItem">
+                <a href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
+            </li>       
+            {% endfor %}
+        </ul>
+    </div>
