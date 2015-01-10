@@ -3,10 +3,10 @@ from .base import *
 
 # Disable debug mode
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'www.skatedev.com', '107.170.78.41', 'skatedev.com']
+ALLOWED_HOSTS = ['*']
 
 # Compress static files offline
 # http://django-compressor.readthedocs.org/en/latest/settings/#django.conf.settings.COMPRESS_OFFLINE
