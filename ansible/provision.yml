@@ -1,0 +1,114 @@
+# assumes Ubuntu 14.04 LTS
+
+- hosts: flowpatrol
+  sudo: yes
+  vars:
+      django_dir: "/usr/local/django/flowpatrol"
+
+  tasks:
+
+    - name: apt upgrade and update
+      apt: update_cache=yes
+      apt: upgrade=safe
+
+    - name: install git
+      apt: name=git state=latest
+
+    - name: install standard servers
+      apt: pkg={{item}} state=latest
+      with_items:
+        - postgresql-9.3
+        - postgresql-server-dev-9.3
+        - nginx
+
+    - name: install common packages for python application development
+      apt: pkg={{item}} state=latest
+      with_items:
+        - python-dev
+        - python-pip
+        - python-psycopg2
+
+    - name: install common packages for image manipulation
+      apt: pkg={{item}} state=latest
+      with_items:
+        - libjpeg8-dev
+        - libfreetype6-dev
+
+    - name: make sure servers are running
+      service: name={{item}} state=started
+      with_items:
+        - postgresql
+        - nginx
+
+    - name: clone github repo
+      git: repo=git@github.com:chrxr/flowpatrol.git
+        dest={{ django_dir }}
+        update=yes
+
+    - name: copy postgresql access config
+      template: src=pg_hba.conf dest=/etc/postgresql/9.3/main/pg_hba.conf
+      notify:
+          - reload postgresql
+
+    - name: copy nginx config
+      template: src=nginx.conf dest=/etc/nginx/sites-enabled/flowpatrol.conf
+      notify:
+          - reload nginx
+
+    - name: ensure uwsgi directory exists
+      action: file path=/etc/uwsgi/vassals state=directory
+
+    - name: ensure uwsgi log directory exists
+      action: file path=/var/log/uwsgi state=directory
+
+    - name: copy uwsgi config
+      template: src=uwsgi_conf.ini dest=/etc/uwsgi/vassals/uwsgi_conf.ini
+
+    - name: copy uwsgi startup script
+      template: src=uwsgi-init.d dest=/etc/init.d/uwsgi
+
+    - name: ensure correct permissions on uwsgi script
+      file: path=/etc/init.d/uwsgi mode=755
+
+    - name: ensure database is created
+      sudo_user: postgres
+      action: postgresql_db db=flowpatrol
+         encoding='UTF-8'
+
+    - name: create djangoapps group
+      group: name=djangoapps gid=1000 system=no
+
+    - name: create flowpatrol user
+      user: name=flowpatrol group=djangoapps shell=/bin/bash uid=1000
+
+    - name: install flowpatrol python dependencies
+      pip: requirements={{ django_dir }}/requirements.txt
+
+    - name: install uwsgi
+      pip: name=uwsgi
+
+    - name: ensure uswgi starts at boot
+      command: update-rc.d uwsgi defaults
+
+    - name: make sure uwsgi is running
+      service: name=uwsgi state=started
+
+    - django_manage: command=collectstatic
+        app_path={{ django_dir }}
+
+    - django_manage: command=syncdb
+        app_path={{ django_dir }}
+        settings=flowpatrol.settings
+
+    - django_manage: command=migrate
+        app_path={{ django_dir }}
+        settings=flowpatrol.settings
+
+    - name: restart uwsgi
+      service: name=uwsgi state=restarted
+
+    - name: reload nginx
+      service: name=nginx state=restarted
+
+    - name: reload postgresql
+      service: name=postgresql state=restarted

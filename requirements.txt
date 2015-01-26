@@ -13,3 +13,4 @@ psycopg2==2.5.2
 # Developer tools
 Fabric==1.9.0
 mandrill
+ansible==1.8.2

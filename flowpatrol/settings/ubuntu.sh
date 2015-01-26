@@ -7,7 +7,7 @@
 # Tom Dyson and Neal Todd
 
 PROJECT=flowpatrol
-PROJECT_ROOT=/usr/local/flowpatrol
+PROJECT_ROOT=/usr/local/django
 
 echo "This script overwrites key files, and should only be run on a new box."
 read -p "Type 'yes' to confirm: " CONFIRM
@@ -57,7 +57,7 @@ rm -r etc README.md Vagrantfile* .git .gitignore
 dd if=/dev/zero of=/tmpswap bs=1024 count=524288
 mkswap /tmpswap
 swapon /tmpswap
-pip install -r requirements/production.txt
+pip install -r requirements.txt
 swapoff -v /tmpswap
 rm /tmpswap
 
