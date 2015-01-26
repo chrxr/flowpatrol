@@ -104,6 +104,7 @@
         app_path={{ django_dir }}
         settings=flowpatrol.settings
 
+  handlers:
     - name: restart uwsgi
       service: name=uwsgi state=restarted
 
