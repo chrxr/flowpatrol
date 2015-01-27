@@ -11,7 +11,7 @@
 {% block content %}
     {% with self.carousel_items.all as carousel_items %}
         {% if carousel_items %}
-            {% include "core/includes/carousel.html" with self=self carousel_items=carousel_items %}
+            {% include "core/includes/carousel.html" with carousel_items=carousel_items %}
         {% endif %}
     {% endwith %}
     {% if self.headline and self.features %}
