@@ -217,5 +217,53 @@ StandardPage.promote_panels = [
     ImageChooserPanel('feed_image'),
 ]
 
+# Image gallery
+
+class ImageGalleryImage(Orderable):
+    page = ParentalKey('core.ImageGallery', related_name='gallery_image')
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    image_title = models.CharField(max_length=255, blank=True)
+    image_caption = models.CharField(max_length=255, blank=True)
+
+    panels = [
+        ImageChooserPanel('image'),
+        FieldPanel('image_title'),
+        FieldPanel('image_caption'),
+    ]
+
+class ImageGallery(Page):
+    intro = RichTextField(blank=True)
+    body = RichTextField(blank=True)
+    feed_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+ImageGallery.content_panels = [
+    FieldPanel('title', classname="full title"),
+    FieldPanel('intro', classname="full"),
+    FieldPanel('body', classname="full"),
+    InlinePanel(ImageGallery, 'gallery_image', label="Gallery images"),
+]
+
+ImageGallery.promote_panels = [
+    MultiFieldPanel(COMMON_PANELS, "Common page configuration"),
+    ImageChooserPanel('feed_image')
+]
+
+
+
+
+
+
 
 
