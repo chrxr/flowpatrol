@@ -19,7 +19,7 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('core/static/css'))
     .pipe(notify({ message: 'Styles task complete' }));
 });
 
@@ -29,23 +29,14 @@ gulp.task('tablet', function() {
     .pipe(gulp.dest('css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('core/static/css'))
     .pipe(notify({ message: 'Tablet task complete' }));
 });
 
-gulp.task('popup', function() {
-  return sass('core/static/css/scss/popup.scss', { style: 'expanded' })
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(gulp.dest('css'))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
-    .pipe(gulp.dest('css'))
-    .pipe(notify({ message: 'Tablet task complete' }));
-});
 
 // Default task
 gulp.task('default', function() {
-    gulp.start('styles', 'tablet', 'popup');
+    gulp.start('styles', 'tablet');
 });
  
 
