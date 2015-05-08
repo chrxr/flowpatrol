@@ -16,7 +16,12 @@ $(document).ready(function(){
     auto: true,
   });
   var button = $('#mobile_menu_button'), menuItems = $('.mobileMenuItem'), menuSize = 0;
-
+  
+  $('.test-popup-link').magnificPopup({ 
+      type: 'image'
+        // other options
+    });
+  
   menuSize = 15 + ($(menuItems).length * 40);
 
   console.log(menuSize);

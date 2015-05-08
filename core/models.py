@@ -256,7 +256,7 @@ ImageGallery.content_panels = [
 ]
 
 ImageGallery.promote_panels = [
-    MultiFieldPanel(COMMON_PANELS, "Common page configuration"),
+    MultiFieldPanel(COMMON_PANELS, "Common page configuration"),    
     ImageChooserPanel('feed_image')
 ]
 

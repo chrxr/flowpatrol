@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+{% load core_tags wagtailimages_tags %}
+
+{% block content %}
+{% with self.gallery_image.all as gallery_images %}
+    {% if gallery_images %}
+        <ul>
+        {% for gallery_image in gallery_images %}
+            {% image gallery_image.image width-400 as tmp_photo %}
+            {% image gallery_image.image width-800 as lrg_photo %}
+            <li>
+                <a class="test-popup-link" href="{{ lrg_photo.url }}">
+                    <img src='{{ tmp_photo.url }}' />
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+
+{% endblock %}
