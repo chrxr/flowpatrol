@@ -464,6 +464,10 @@ a:visited {
   background-color: #FFF;
   margin-bottom: 15px;
 }
+.moreTextContainer img {
+  width: 100%;
+  height: auto;
+}
 
 .moreTextContainer p {
   margin: 10px;
