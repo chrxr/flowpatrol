@@ -434,6 +434,37 @@ a:visited {
     font-size: 0.85em;
 }
 
+//IMAGE GALLERY
+
+.image_gallery {
+    float: left;
+    padding-left:85px;
+    .container {
+        position:relative;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        height:auto;
+        list-style: none;
+        justify-content: space-around;
+        padding-left:0;
+    }
+    .item {
+        margin: auto;  /* Magic! */
+        margin-left:0;
+        margin-bottom:15px;
+        text-align: center;
+        height:auto;
+
+        img {
+            width:100%;
+            margin-left:auto;
+            margin-right:auto;
+        }
+    }
+
+}
+
 .footer {
     float:left;
     clear:both;

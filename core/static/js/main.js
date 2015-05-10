@@ -14,13 +14,21 @@ $(document).ready(function(){
     nextText: '',
     prevText: '',
     auto: true,
+    speed: 500,
+    pause: 8000,
   });
   var button = $('#mobile_menu_button'), menuItems = $('.mobileMenuItem'), menuSize = 0;
   
   $('.test-popup-link').magnificPopup({ 
-      type: 'image'
-        // other options
-    });
+      type: 'image', 
+        gallery: {
+          enabled: true
+      },
+      image: {
+        // options for image content type
+        titleSrc: 'title'
+      }
+  });
   
   menuSize = 15 + ($(menuItems).length * 40);
 

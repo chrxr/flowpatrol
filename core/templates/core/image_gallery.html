@@ -2,21 +2,29 @@
 {% load core_tags wagtailimages_tags %}
 
 {% block content %}
+<div class='lowerContainer clearfix'>
+    <div class="pageTitle">
+        <h1>{{ self.title }}</h1>
+    </div>
+    {% include "core/includes/body.html" with body=self.body only %}
+
 {% with self.gallery_image.all as gallery_images %}
     {% if gallery_images %}
-        <ul>
+        <section class='image_gallery'>
+        <ul class='container clearfix'>
         {% for gallery_image in gallery_images %}
             {% image gallery_image.image width-400 as tmp_photo %}
             {% image gallery_image.image width-800 as lrg_photo %}
-            <li>
-                <a class="test-popup-link" href="{{ lrg_photo.url }}">
+            <li class='item'>
+                <a class="test-popup-link" title='{{ gallery_image.image_caption }}' href="{{ lrg_photo.url }}">
                     <img src='{{ tmp_photo.url }}' />
                 </a>
             </li>
         {% endfor %}
         </ul>
+        </section>
     {% endif %}
 {% endwith %}
-
+</div>
 
 {% endblock %}
