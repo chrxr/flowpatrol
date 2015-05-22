@@ -152,12 +152,12 @@ WAGTAIL_SITE_NAME = "flowpatrol"
 # http://wagtail.readthedocs.org/en/latest/howto/performance.html#search
 # http://wagtail.readthedocs.org/en/latest/core_components/search/backends.html#elasticsearch-backend
 #
-# WAGTAILSEARCH_BACKENDS = {
-#     'default': {
-#         'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch.ElasticSearch',
-#         'INDEX': 'flowpatrol',
-#     },
-# }
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.wagtailsearch.backends.elasticsearch.ElasticSearch',
+        'INDEX': 'flowpatrol',
+    },
+}
 
 
 # Whether to use face/feature detection to improve image cropping - requires OpenCV
